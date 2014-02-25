@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<posts>
+  <post id='1'>
+    <name>1</name>
+    <content>c1</content>
+  </post>
+  <post id='2'>
+    <name>2</name>
+    <content>c2</content>
+  </post>
+</posts>

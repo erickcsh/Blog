@@ -1,0 +1,57 @@
+form h2 {
+  text-align: center;
+  border-bottom: 2px solid;
+}
+
+#main_wrapper {
+  background-image:url('../img/blog_posts.png');
+  background-size: 100% 100%;
+  border-radius:25px;
+  border: 1px solid;
+}
+
+#form_wrapper{
+  margin: 2% auto;
+  width: 90%;
+  padding-bottom: 2%;
+}
+
+#form_options {
+  margin-top: 1%;
+  overflow: hidden;
+}
+
+#form_options button {
+  float: right;
+  margin-right: 1%;
+}
+
+#form_name {
+  overflow: hidden;
+  border-bottom: 1px dotted;
+  margin-bottom: 3%;
+}
+
+#form_name h5 {
+  margin: 2% 1%;
+  width: 13%;
+  float: left;
+  overflow: hidden;
+}
+
+#form_name #name {
+  margin: 2% 1%;
+  width: 82%;
+  float: right;
+}
+
+#form_content {
+  margin: 3% auto;
+  width: 90%;
+}
+
+#form_content #content {
+  min-height: 1200px;
+  width: 100%;
+  resize: none;
+}

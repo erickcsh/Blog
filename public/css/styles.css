@@ -1,0 +1,179 @@
+@charset "utf-8";
+html, body, div, span, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+img, input, ins, kbd, q, s, samp,
+small, strike, strong, 
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, textarea, caption, tbody, tfoot, thead, tr, th, td {
+  font: normal normal 1em 'Trebuchet MS',Trebuchet,Verdana,sans-serif;
+  color: #3B1B20;
+}
+
+a:link {color:#64B8CA}
+a:visited {color:#64B8CA;}
+a:hover {color:#628F99;}
+a:active {color:#4DA1CA;}
+
+h1 {
+  padding: 4%;
+  font-size:2.5em;
+}
+
+h2 {
+  padding: 2% 4%;
+  font-size:2.25em;
+}
+
+h3 {	
+  font-size:2em;
+}
+
+h4 {
+  font-size:1.75em;
+}
+
+h5 {
+  font-size:1.5em;
+}
+
+h6 {
+  font-size:1.25em;
+}
+
+body {
+  background-image:url('../img/background.png');
+  background-size: 100% 100%;
+}
+
+button {
+  border-radius:25px;
+  background: #E86933;
+  float: right;
+}
+
+header {
+  width: 60%;
+  margin:2% auto;
+  border-radius:25px;
+  border: 1px solid;
+  background-image:url('../img/header.png');
+  box-shadow: 10px 10px 5px #888888;
+  background-size: 100% 100%;
+}
+
+header h1 {
+  color: #58D8B5;
+}
+
+#content_wrapper {
+  width:60%;
+  margin:2% auto;
+}
+
+#main_content {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#last_posts {
+  width: 70%;
+  float: left;
+}
+
+#posts_intro {
+  overflow: hidden;
+  background-image:url('../img/sidebar.png');
+  background-size: 100% 100%;
+  border-radius:25px;
+  border: 1px solid;
+}
+
+#posts_titles {
+  padding: 1% 2%;
+}
+
+#posts_options {
+  margin-top: 2%;
+  background-image:url('../img/sidebar.png');
+  background-size: 100% 100%;
+  border-radius:25px;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+#post_new {
+  float:right;
+}
+
+#post_new button {
+  float:right;
+}
+
+#posts {
+  background-image:url('../img/blog_posts.png');
+  background-size: 100% 100%;
+  margin-top: 2%;
+  border: 2px solid;
+  border-radius:25px;
+  min-height: 700px;
+}
+
+.post {
+  padding: 2%;
+  margin: auto;
+  border-bottom: 4px solid;
+  border-bottom-color: #3B2B20;
+}
+
+.name {
+  width: 90%;
+  margin: 2% auto;
+  text-align: center;
+}
+
+.date {
+  text-align: right;
+  margin: 1% 0;
+  font-size: 0.75em;
+  color: #946D50;
+}
+
+.content {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.sidebar {
+  width: 28%;
+  float: right;
+  height: 100%;
+  position: absolute;
+  border-radius:25px;
+  border: 1px solid;
+  right: 0;
+  background-image:url('../img/sidebar.png');
+  background-size: 100% 100%;
+}
+
+#post_selector {
+  margin: 10% auto;
+  width: 90%;
+}
+
+#post_selector h5 {
+  text-align: center;
+  padding: 2%;
+}
+
+#post_selector ul {
+  margin-top: 10%;
+  text-align: center;
+  list-style-type: disc;
+}
+
+#post_selector li {
+  margin-top: 5%;
+}
