@@ -2,17 +2,18 @@ module Blog
   class Index < HTTPServlet::AbstractServlet
 
     def do_POST(req, resp)
-      resp.body = create_index
+      resp.body = create_index(req)
       resp['Content-Type'] = 'text/html'
     end
 
     def do_GET(req, resp)
-      resp.body = create_index
+      resp.body = create_index(req)
       resp['Content-Type'] = 'text/html'
     end
 
     private
-    def create_index
+    def create_index(req)
+      PostManager.process_action(req)
       @posts = XMLManager.select_all
       html_body = '<!DOCTYPE html>'
       html_body << html

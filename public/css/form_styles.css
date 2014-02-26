@@ -21,7 +21,9 @@ form h2 {
   overflow: hidden;
 }
 
-#form_options button {
+#form_options input {
+  border-radius:25px;
+  background: #E86933;
   float: right;
   margin-right: 1%;
 }

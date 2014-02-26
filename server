@@ -5,13 +5,17 @@ require_relative 'lib/blog'
 POST_HTML = 'public/html/post_form.html'
 INDEX = 'public/index.html'
 
-root = './public/css'
-port = 8000
+root = './public'
+port = 8080
 address = 'localhost'
 
 server = HTTPServer.new(:Port => port, :BindAddress => address, :DocumentRoot => root)
-server.mount_proc('/post') { |req, res| res.body = File.read(POST_HTML) }
-server.mount_proc('/') { |req, res| res.body = File.read(INDEX) }
-#server.mount('/', Blog::Index)
+#server.mount_proc('/post') { |req, res| res.body = File.read(POST_HTML) }
+server.mount('/img', HTTPServlet::FileHandler, './public/img/')
+server.mount('/css', HTTPServlet::FileHandler, './public/css/')
+#server.mount_proc('/') { |req, res| res.body = File.read(INDEX) }
+server.mount('/action', Blog::PostManager)
+server.mount('/post', Blog::PostForm)
+server.mount('/', Blog::Index)
 trap("INT"){ server.shutdown }
 server.start
