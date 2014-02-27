@@ -124,6 +124,7 @@ header h1 {
 .post {
   padding: 2%;
   margin: auto;
+  margin-bottom: 2%;
   border-bottom: 4px solid;
   border-bottom-color: #3B2B20;
 }

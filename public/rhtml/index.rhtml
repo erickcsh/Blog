@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <title>Pernix - Apprenticeship - Blog: Plain Ruby</title>
+  </head>
+  <body>
+    <header>
+    <h1> Blog </h1>
+    </header>
+    <div id="content_wrapper">
+      <div id="main_content">
+        <div id="last_posts">
+          <div id="posts_intro">
+            <div id="posts_titles">
+              <h2> Last Posts </h2>
+            </div> <!--#posts_titles -->
+          </div> <!--#posts_intro -->
+          <div id="posts_options">
+            <div id="post_new">
+              <form action="/post">
+                <button id="new"> <p>New</p> </button>
+              </form>
+            </div> <!--#post_new -->
+          </div> <!--#posts_options -->
+          <div id="posts">
+            <%= get_posts %>
+          </div> <!--#posts -->
+        </div> <!--#last_posts -->
+        <div class="sidebar">
+          <div id="post_selector">
+            <h5> All Posts </h5>
+            <ul> <%= sidebar_ul %> </ul>
+          </div> <!--#post_selector -->
+        </div> <!--#sidebar -->
+      </div> <!--#main_content -->
+    </div> <!--#content_wrapper -->
+  </body>
+</html>

@@ -15,7 +15,8 @@ module Blog
     private
     def self.save(req)
       id = req.query["id"]
-      if(id == ("")) then new(req)
+      puts id.inspect
+      if(id_empty?(id)) then new(req)
       else edit(id, req)
       end
     end
@@ -38,6 +39,11 @@ module Blog
 
     def self.drop(req)
       XMLManager.delete(req.query["id"])
+    end
+
+    private
+    def self.id_empty?(id)
+      id == "" || id.nil?
     end
   end
 end

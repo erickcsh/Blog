@@ -4,8 +4,9 @@ module Blog
 
       def self.select_element(xml, id)
         node = nil
+        id = id.to_s
         xml.elements.each(POST_PATH) do |element|
-          node = element if element.attributes[ID] == id.to_s
+          node = element if element.attributes[ID].to_s == id
         end
         node
       end
