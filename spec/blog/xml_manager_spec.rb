@@ -1,6 +1,6 @@
 require "blog"
 require "constants"
-    
+
 file = File.expand_path(File.join(File.dirname(__FILE__), '/spec/test.xml'))
 original_file = File.read(file)
 
