@@ -1,0 +1,9 @@
+<div id="<%= key %>" class="post">
+  <form action="/post" method="POST">
+    <input type="hidden" name="id" value="<%= key %>"/>
+    <button> <p>Edit</p> </button>
+  </form>
+  <h3 class="name"><%= value[:name] %></h3>
+  <h4 class="date"><%= value[:date] %></h4>
+  <p class="content"><%= value[:content] %></p>
+</div> <!--#post -->
