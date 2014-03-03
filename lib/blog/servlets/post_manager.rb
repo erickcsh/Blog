@@ -15,7 +15,6 @@ module Blog
     private
     def self.save(req)
       id = req.query["id"]
-      puts id.inspect
       if(id_empty?(id)) then new(req)
       else edit(id, req)
       end

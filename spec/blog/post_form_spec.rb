@@ -11,6 +11,8 @@ module Blog
 
     FILE = File.expand_path(File.join(File.dirname(__FILE__), '../test_index.xml'))
     ORIGINAL_FILE = File.read(FILE)
+    URI_INDEX_ADDRESS = 'http://localhost:8000/'
+    URI_POST_ADDRESS = 'http://localhost:8000/post'
 
     def self.reset_file
       File.open(FILE, "w") { |data| data << ORIGINAL_FILE}
@@ -35,7 +37,7 @@ module Blog
     def declare_tests
       the Blog::Index, " no post is passed" do
         has_to "ask for new information" do
-          uri = URI('http://localhost:8080/post')
+          uri = URI(URI_POST_ADDRESS)
           res = Net::HTTP.get_response(uri)
           include_body = res.body.include?('<textarea id="content" name="content">Content here...</textarea>')
           include_name = res.body.include?('<input id="name" type="text" name="name" value=""/>')
@@ -51,11 +53,11 @@ module Blog
 
       the Blog::Index, " post is passed" do
         has_to "display the post information" do
-          uri = URI('http://localhost:8080/')
+          uri = URI(URI_INDEX_ADDRESS)
           params = { name: A_NAME, content: A_CONTENT, id: NO_ID, action: SAVE }
           uri.query = URI.encode_www_form(params)
           res = Net::HTTP.get_response(uri)
-          uri = URI('http://localhost:8080/post')
+          uri = URI(URI_POST_ADDRESS)
           params = { name: A_NAME, content: A_CONTENT, id: NEW_POST_ID }
           uri.query = URI.encode_www_form(params)
           res = Net::HTTP.get_response(uri)
