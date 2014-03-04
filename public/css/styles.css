@@ -63,9 +63,14 @@ header {
   background-size: 100% 100%;
 }
 
-header h1 {
-  color: #58D8B5;
+header h1 a{
+  text-decoration: none;
 }
+
+header h1 a:link {color:#58D8B5}
+header h1 a:visited {color:#58D8B5;}
+header h1 a:hover {color:#628F99;}
+header h1 a:active {color:#4DA1CA;}
 
 #content_wrapper {
   width:60%;
