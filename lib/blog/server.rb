@@ -2,7 +2,7 @@ module Blog
   class Server
 
     ROOT = './public'
-    PORT = 8000
+    PORT = $PORT
     ADDRESS = 'localhost'
 
     attr_reader :server
