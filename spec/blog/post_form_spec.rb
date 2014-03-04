@@ -5,16 +5,11 @@ require_relative 'blog'
 
 include RTest::MainTest
 
-FILE = File.expand_path(File.join(File.dirname(__FILE__), '../test_index.xml'))
-ORIGINAL_FILE = File.read(FILE)
-URI_INDEX_ADDRESS = 'http://localhost:8000/'
-URI_POST_ADDRESS = 'http://localhost:8000/post'
-
 def reset_file
   File.open(FILE, "w") { |data| data << ORIGINAL_FILE}
 end
 
-server = Blog::Server.new.server
+server = Blog::Server.new(PORT).server
 Thread.new() { server.start }
 Blog::XMLManager.set_xml(FILE)
 

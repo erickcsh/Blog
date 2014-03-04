@@ -2,7 +2,6 @@ module Blog
   class Server
 
     ROOT = './public'
-    ADDRESS = 'localhost'
 
     attr_reader :server
 

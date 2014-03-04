@@ -5,21 +5,17 @@ require_relative 'blog'
 
 include RTest::MainTest
 
-FILE = File.expand_path(File.join(File.dirname(__FILE__), '../test_index.xml'))
-ORIGINAL_FILE = File.read(FILE)
-URI_ADDRESS = 'http://localhost:8000/'
-
 def reset_file
   File.open(FILE, "w") { |data| data << ORIGINAL_FILE}
 end
 
-server = Blog::Server.new.server
+server = Blog::Server.new(PORT).server
 Thread.new() { server.start }
 Blog::XMLManager.set_xml(FILE)
 
 the Blog::Index, " create post" do
   has_to "add new post" do
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     params = { name: A_NAME, content: A_CONTENT, id: NO_ID, action: SAVE }
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
@@ -35,7 +31,7 @@ end
 
 the Blog::Index, " no posts included" do
   has_to "display Instructions" do
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     res = Net::HTTP.get_response(uri)
     include_name = res.body.include?('<h3 class="name"> Instructions </h3>')
     include_body = res.body.include?('<h4 class="date"> The date goes here </h4>')
@@ -49,11 +45,11 @@ end
 
 the Blog::Index, " delete post" do
   has_to "not to display the post information" do
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     params = { name: A_NAME, content: A_CONTENT, id: NO_ID, action: SAVE }
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     params = { name: A_NAME, content: A_CONTENT, id: 1, action: DELETE }
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
@@ -69,11 +65,11 @@ end
 
 the Blog::Index, " edit post" do
   has_to "display the new post information" do
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     params = { name: A_NAME, content: A_CONTENT, id: NO_ID, action: SAVE }
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
-    uri = URI(URI_ADDRESS)
+    uri = URI(URI_INDEX_ADDRESS)
     params = { name: ANOTHER_NAME, content: ANOTHER_CONTENT, id: 1, action: SAVE }
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
