@@ -4,7 +4,7 @@ require_relative 'lib/blog'
 require 'rubygems'
 require 'bundler/setup'
 
-server = Blog::Server.new.server
+server = Blog::Server.new(ARGV.last).server
 
 trap("INT") do
   server.shutdown 

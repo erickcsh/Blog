@@ -2,14 +2,13 @@ module Blog
   class Server
 
     ROOT = './public'
-    PORT = $PORT
     ADDRESS = 'localhost'
 
     attr_reader :server
 
-    def initialize
+    def initialize(port)
       WEBrick::HTTPUtils::DefaultMimeTypes['rhtml'] = 'text/html'
-      @server = HTTPServer.new(:Port => PORT, :BindAddress => ADDRESS, :DocumentRoot => ROOT)
+      @server = HTTPServer.new(:Port => port, :DocumentRoot => ROOT)
       mount_address
     end
 
